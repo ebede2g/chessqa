@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+</head>
+
+<body>
+    <h1>Введіть свій нікнейм:</h1>
+
+    <form id="usernameForm" method="POST" onsubmit="return validateUsername()">
+        <input type="text" id="usernameInput" name="username" required>
+        <button type="submit">Увійти</button>
+    </form>
+
+    <div id="errorMessage" style="color: red; display: none;">
+        Нікнейм має містити не більше 25 символів.
+    </div>
+
+    <script>
+        function validateUsername() {
+            var usernameInput = document.getElementById('usernameInput');
+            var errorMessage = document.getElementById('errorMessage');
+            var username = usernameInput.value.trim();
+            if (username.length === 0 || username.length > 25) {
+                errorMessage.style.display = 'block';
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
